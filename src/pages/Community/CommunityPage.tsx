@@ -1,39 +1,33 @@
+import { memo } from 'react'
 import { Heart } from 'lucide-react'
 import { socialLinks, stats } from './data'
 import HeadingText from '@/components/HeadingText.tsx'
 import { cn } from '@/utils/style'
 import SEO from '@/components/SEO'
+import PageWrapper from '@/components/PageWrapper'
 
 function CommunityPage() {
   return (
     <>
       <SEO
-        title="Eden Emulator Community - Join Discord, GitHub & More"
-        description="Join the Eden Emulator community. Connect with thousands of gamers and developers on Discord, contribute on GitHub, and help improve the emulator."
-        keywords="Eden Emulator community, Switch emulator Discord, Eden GitHub, emulator community"
+        title="Eden Community - Join Discord, GitHub & More"
+        description="Join the Eden community. Connect with thousands of gamers and developers on Discord, contribute on GitHub, and help improve the emulator."
+        keywords="Eden community, Switch emulator Discord, Eden GitHub, emulator community"
         url="https://eden-emulator.github.io/community"
       />
-      <div className="bg-linear-to-b from-black via-purple-900/10 to-black relative overflow-hidden min-h-screen">
-        {/* Background Grid */}
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `
-            linear-gradient(rgba(255, 0, 255, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px)
-          `,
-            backgroundSize: '50px 50px',
-          }}
-        ></div>
-
-        {/* Neon Glow Effects */}
-        <div className="absolute top-10 left-10 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
-
+      <PageWrapper>
+        <div className="h-24 md:h-34" />
+        {/* Background Effects */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/3 w-72 h-72 bg-pink-500/8 rounded-full blur-xl animate-subtle-pulse will-change-transform" />
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-cyan-500/8 rounded-full blur-xl animate-float-delay-3 will-change-transform" />
+          <div className="absolute top-20 right-1/3 w-60 h-60 bg-purple-500/8 rounded-full blur-xl animate-subtle-pulse-delay-2 will-change-transform" />
+          <div className="absolute bottom-20 left-1/4 w-72 h-72 bg-blue-500/8 rounded-full blur-xl animate-float will-change-transform" />
+        </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <HeadingText
             title="JOIN THE COMMUNITY"
-            description="Connect with gamers, developers, and enthusiasts in the Eden Emulator community"
+            description="Connect with gamers, developers, and enthusiasts in the Eden community"
           />
 
           {/* Community Stats */}
@@ -43,7 +37,7 @@ function CommunityPage() {
               {stats.map((stat, index) => (
                 <div
                   key={index}
-                  className="group relative text-center bg-black/60 backdrop-blur-xs border border-cyan-500/30 rounded-xl p-6 hover:border-pink-400/50 transition-all duration-500"
+                  className="group relative text-center bg-black/60 backdrop-blur-xs border border-cyan-500/30 rounded-xl p-6 hover:border-pink-400/50 transition-colors duration-300"
                 >
                   {/* Glow Effect */}
                   <div
@@ -115,7 +109,7 @@ function CommunityPage() {
                           href={link.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          aria-label={`Join Eden Emulator on ${link.name} (opens in new tab)`}
+                          aria-label={`Join Eden on ${link.name} (opens in new tab)`}
                           className="text-pink-400 hover:text-cyan-300 font-bold transition-colors duration-300 tracking-wider focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-black rounded px-2 py-1"
                         >
                           JOIN NOW →
@@ -137,7 +131,7 @@ function CommunityPage() {
             <div
               className="absolute inset-0 bg-linear-to-r from-pink-500/10 via-purple-500/10 to-cyan-500/10 rounded-xl blur-sm"
               aria-hidden="true"
-            ></div>
+            />
 
             <div className="relative">
               <div className="flex justify-center mb-6">
@@ -150,8 +144,8 @@ function CommunityPage() {
                 HELP MAKE EDEN BETTER
               </h3>
               <p className="text-cyan-100 mb-8 max-w-2xl mx-auto font-light">
-                Eden Emulator is open source and community-driven. Whether you're a developer,
-                designer, we can use your help!
+                Eden is open source and community-driven. Whether you're a developer, designer, we
+                can use your help!
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <a
@@ -177,9 +171,9 @@ function CommunityPage() {
           </section>
         </div>
         <div className="h-16" />
-      </div>
+      </PageWrapper>
     </>
   )
 }
 
-export default CommunityPage
+export default memo(CommunityPage)

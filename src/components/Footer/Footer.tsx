@@ -1,6 +1,6 @@
 import { Heart, ExternalLink, LinkIcon } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
-import edenLogo from '@/assets/logo.png'
+import edenLogo from '@/assets/eden_logo.png'
 import { footerLinks, socialLinks } from '@/components/Footer/data.ts'
 import { cn } from '@/utils/style'
 
@@ -22,17 +22,17 @@ function Footer() {
           backgroundSize: '40px 40px',
         }}
         aria-hidden="true"
-      ></div>
+      />
 
       {/* Glow Effects */}
       <div
         className="absolute top-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
         aria-hidden="true"
-      ></div>
+      />
       <div
         className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"
         aria-hidden="true"
-      ></div>
+      />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Main Footer Content */}
@@ -42,20 +42,18 @@ function Footer() {
             <Link
               to="/"
               className="flex items-center space-x-3 mb-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black rounded-lg"
-              aria-label="Eden Emulator - Return to home page"
+              aria-label="Eden - Return to home page"
             >
               <img
                 src={edenLogo}
-                alt="Eden Emulator Logo"
+                alt="Eden Logo"
                 className="h-10 w-10"
                 style={{ filter: 'drop-shadow(0 0 10px rgba(147, 51, 234, 0.8))' }}
                 aria-hidden="true"
               />
-              <span className="text-xl font-bold text-white">EDEN EMULATOR</span>
+              <span className="text-xl font-bold text-white">Eden</span>
             </Link>
-            <p className="text-blue-200 text-sm mb-4">
-              Much inspiring quote here, or something like that.
-            </p>
+            <p className="text-blue-200 text-sm mb-4">"Our actions define our legacy."</p>
             <nav aria-label="Social media links">
               <h3 className="sr-only">Follow us on social media</h3>
               <div className="flex space-x-3">
@@ -121,21 +119,21 @@ function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-4 mb-4 md:mb-0">
               <p className="text-blue-200 text-sm">
-                © {new Date().getFullYear()} Eden Emulator. All rights reserved.
+                © {new Date().getFullYear()} Utopia LLC. Eden. All rights reserved.
               </p>
             </div>
 
             <div className="flex items-center space-x-2 text-blue-200 text-sm">
               <span>Made with</span>
               <Heart className="w-4 h-4 text-purple-400 mr-2 animate-pulse" aria-hidden="true" />
-              <span>by your mom</span>
+              <span>by The Eden Team.</span>
             </div>
           </div>
 
           <div className="mt-4 text-center">
             <p className="text-blue-300/60 text-xs">
-              Eden Emulator is not affiliated with any game console manufacturer. All trademarks are
-              property of their respective owners.
+              Eden is not affiliated with any game console manufacturer. All trademarks are property
+              of their respective owners.
             </p>
           </div>
         </div>

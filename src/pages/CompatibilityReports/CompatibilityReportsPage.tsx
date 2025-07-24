@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef, memo } from 'react'
 import { Loader2, Smartphone, Cpu, TrendingUp, TrendingDown, Info } from 'lucide-react'
 import type { CompatibilityReport, PaginationInfo } from './types'
 import HeadingText from '@/components/HeadingText'
@@ -7,6 +7,7 @@ import getGameImageUrl from '@/pages/CompatibilityReports/utils/getGameImageUrl'
 import { EDEN_EMULATOR_ID, DEFAULT_PERFORMANCE_STYLE, PERFORMANCE_STYLES } from './data'
 import { cn } from '@/utils/style'
 import SEO from '@/components/SEO'
+import PageWrapper from '@/components/PageWrapper'
 
 function CompatibilityReportsPage() {
   const [reports, setReports] = useState<CompatibilityReport[]>([])
@@ -19,6 +20,7 @@ function CompatibilityReportsPage() {
     pages: 0,
   })
   const [error, setError] = useState<string | null>(null)
+  const hasInitialized = useRef(false)
   const [modalState, setModalState] = useState<{
     isOpen: boolean
     gameTitle: string
@@ -44,10 +46,12 @@ function CompatibilityReportsPage() {
           }),
         )
 
-        const apiUrl = import.meta.env.VITE_EMUREADY_API_BASE_URL || '/api/emuready'
-        const response = await fetch(
-          `${apiUrl}/trpc/mobile.getListings?batch=1&input=${encodedInput}`,
-        )
+        // Use environment variable if set, otherwise fallback based on dev/prod
+        const apiUrl =
+          import.meta.env.VITE_EMUREADY_API_BASE_URL ||
+          (import.meta.env.DEV ? '/api/mobile/trpc' : 'https://www.emuready.com/api/mobile/trpc')
+
+        const response = await fetch(`${apiUrl}/listings.getListings?batch=1&input=${encodedInput}`)
         const data = await response.json()
 
         if (data?.[0]?.result?.data?.json) {
@@ -72,6 +76,8 @@ function CompatibilityReportsPage() {
 
   // Initial load
   useEffect(() => {
+    if (hasInitialized.current) return
+    hasInitialized.current = true
     fetchReports(1).catch(console.error)
   }, [fetchReports])
 
@@ -99,12 +105,14 @@ function CompatibilityReportsPage() {
   return (
     <>
       <SEO
-        title="Eden Emulator Game Compatibility - Performance Reports"
-        description="Check game compatibility for Eden Emulator. Browse real-world performance reports from the community for Nintendo Switch games."
-        keywords="Eden Emulator compatibility, Switch game compatibility, game performance reports, Eden game support"
+        title="Eden Game Compatibility - Performance Reports"
+        description="Check game compatibility for Eden. Browse real-world performance reports from the community for Nintendo Switch games."
+        keywords="Eden compatibility, Switch game compatibility, game performance reports, Eden game support"
         url="https://eden-emulator.github.io/compatibility"
       />
-      <div className="bg-linear-to-b from-black via-purple-900/10 to-black relative overflow-hidden min-h-screen">
+
+      <PageWrapper>
+        <div className="h-24 md:h-34" />
         {/* Animated Grid Background */}
         <div className="absolute inset-0 opacity-30">
           <div
@@ -366,7 +374,7 @@ function CompatibilityReportsPage() {
                   No Reports Found
                 </h3>
                 <p className="text-lg text-cyan-100/70 font-light">
-                  Be the first to test Eden Emulator and share your results!
+                  Be the first to test Eden and share your results!
                 </p>
               </div>
             </div>
@@ -403,9 +411,9 @@ function CompatibilityReportsPage() {
           onConfirm={handleModalConfirm}
           gameTitle={modalState.gameTitle}
         />
-      </div>
+      </PageWrapper>
     </>
   )
 }
 
-export default CompatibilityReportsPage
+export default memo(CompatibilityReportsPage)

@@ -35,7 +35,7 @@ export interface TeamSection {
 export const teamSections: TeamSection[] = [
   {
     title: 'DEVELOPERS',
-    description: 'The core team building Eden Emulator',
+    description: 'The core team building Eden',
     members: [
       {
         name: 'Camille LaVey',
@@ -106,8 +106,7 @@ export const teamSections: TeamSection[] = [
       {
         name: 'Gamer64',
         role: 'Frontend and Vulkan',
-        avatar:
-          'https://cdn.discordapp.com/avatars/593911161226002442/39f31d2b045922931aee3135278f730b.webp?size=1024',
+        avatar: 'https://avatars.githubusercontent.com/u/76565986?v=4', // https://cdn.discordapp.com/avatars/593911161226002442/39f31d2b045922931aee3135278f730b.webp?size=1024
         specialties: ['Frontend', 'Vulkan', 'Graphics'],
         icon: Code2,
         color: 'from-green-500 to-emerald-500',
@@ -197,7 +196,7 @@ export const teamSections: TeamSection[] = [
         role: 'Graphic Designer',
         avatar:
           'https://i.ibb.co/5hLVqQQW/755d80ac15759b03bbf1ae188f2f8f6b4671a5025228f5f53151231b34494f37.png',
-        specialties: ['Logo Design', 'Branding', 'Graphics'],
+        specialties: ['Logo Design', 'Branding', 'Graphics', 'Mod'],
         icon: Palette,
         color: 'from-pink-500 to-purple-500',
         socials: {
@@ -209,11 +208,13 @@ export const teamSections: TeamSection[] = [
         role: 'Main Web Designer',
         avatar:
           'https://cdn.discordapp.com/avatars/707876199329824798/8ee1442551c6031f6de11c12c9bf282e.png?size=1024',
-        specialties: ['Web Design', 'Frontend', 'UX'],
+        specialties: ['Web Design', 'Frontend', 'UX', 'Mod'],
         icon: Users,
         color: 'from-cyan-500 to-teal-500',
         socials: {
-          github: 'Bixthefin',
+          github: 'Bixbr',
+          twitter: 'Bixbrit',
+          website: 'https://bixed.xyz/',
         },
       },
       {
