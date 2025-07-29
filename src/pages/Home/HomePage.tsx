@@ -1,9 +1,9 @@
 import { memo } from 'react'
-import { Cpu, Heart, Download, Zap } from 'lucide-react'
+import { Cpu, Heart, CloudDownload, Zap } from 'lucide-react'
 import edenLogoWebP from '@/assets/eden_neon_logo.webp'
 import edenLogoPNG from '@/assets/eden_neon_logo.png'
 import { Link } from '@tanstack/react-router'
-import { GitHubIcon } from '@/components/Icons'
+import { GitIcon } from '@/components/Icons'
 import SEO from '@/components/SEO'
 import SynthWaveBackground from '@/pages/Home/components/SynthWaveBackground'
 import { usePerformanceOptimization } from '@/hooks/usePerformanceOptimization'
@@ -63,7 +63,7 @@ function HomePage() {
                 aria-hidden="true"
               />
               <div className="relative flex items-center space-x-3">
-                <Download className="w-6 h-6" aria-hidden="true" />
+                <CloudDownload className="w-6 h-6" aria-hidden="true" />
                 <span>DOWNLOAD</span>
               </div>
             </Link>
@@ -80,7 +80,7 @@ function HomePage() {
                 aria-hidden="true"
               />
               <div className="relative flex items-center space-x-3">
-                <GitHubIcon className="w-6 h-6" aria-hidden="true" />
+                <GitIcon className="w-6 h-6" aria-hidden="true" />
                 <span>SOURCE CODE</span>
               </div>
             </a>
@@ -92,7 +92,7 @@ function HomePage() {
           >
             <Link
               to="/features"
-              className={`flex items-center space-x-3 ${!shouldDisableAllAnimations ? 'backdrop-blur-xs' : ''} rounded-full px-6 py-3 transition-transform ${transitionDuration} ${!shouldDisableAllAnimations ? 'hover:scale-105' : ''} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-orange ${!shouldDisableAllAnimations ? 'will-change-transform' : ''} text-synthwave-orange`}
+              className={`flex items-center space-x-3 ${!shouldDisableAllAnimations ? 'backdrop-blur-xs' : ''} rounded-lg px-6 py-3 transition-transform ${transitionDuration} ${!shouldDisableAllAnimations ? 'hover:scale-105' : ''} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-orange ${!shouldDisableAllAnimations ? 'will-change-transform' : ''} text-synthwave-orange`}
               aria-label="View Eden features"
             >
               <Zap className="w-6 h-6" aria-hidden="true" />
@@ -101,7 +101,7 @@ function HomePage() {
 
             <Link
               to="/system-requirements"
-              className={`flex items-center space-x-3 ${!shouldDisableAllAnimations ? 'backdrop-blur-xs' : ''} rounded-full px-6 py-3 transition-transform ${transitionDuration} ${!shouldDisableAllAnimations ? 'hover:scale-105' : ''} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-pink ${!shouldDisableAllAnimations ? 'will-change-transform' : ''} text-synthwave-pink`}
+              className={`flex items-center space-x-3 ${!shouldDisableAllAnimations ? 'backdrop-blur-xs' : ''} rounded-lg px-6 py-3 transition-transform ${transitionDuration} ${!shouldDisableAllAnimations ? 'hover:scale-105' : ''} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-pink ${!shouldDisableAllAnimations ? 'will-change-transform' : ''} text-synthwave-pink`}
               aria-label="View system requirements for Eden"
             >
               <Cpu className="w-6 h-6" aria-hidden="true" />
@@ -110,7 +110,7 @@ function HomePage() {
 
             <Link
               to="/donations"
-              className={`flex items-center space-x-3 ${!shouldDisableAllAnimations ? 'backdrop-blur-xs' : ''} rounded-full px-6 py-3 transition-transform ${transitionDuration} ${!shouldDisableAllAnimations ? 'hover:scale-105' : ''} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-yellow ${!shouldDisableAllAnimations ? 'will-change-transform' : ''} text-synthwave-yellow`}
+              className={`flex items-center space-x-3 ${!shouldDisableAllAnimations ? 'backdrop-blur-xs' : ''} rounded-lg px-6 py-3 transition-transform ${transitionDuration} ${!shouldDisableAllAnimations ? 'hover:scale-105' : ''} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black font-audiowide link-synthwave-yellow ${!shouldDisableAllAnimations ? 'will-change-transform' : ''} text-synthwave-yellow`}
               aria-label="Download Eden"
             >
               <Heart className="w-6 h-6" aria-hidden="true" />
